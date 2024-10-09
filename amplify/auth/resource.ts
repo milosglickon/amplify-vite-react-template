@@ -22,12 +22,12 @@ export const auth = defineAuth({
           
         },
         callbackUrls:[
-               "https://master.d1bgkh197sfkvu.amplifyapp.com",
+               "https://main.dajuuyd6g5v62.amplifyapp.com",
                "http://localhost:5173",
                "https://cvanalyzer.auth.eu-west-1.amazoncognito.com/oauth2/idpresponse"
             ],
             logoutUrls:[
-                "https://master.d1bgkh197sfkvu.amplifyapp.com",
+                "https://main.dajuuyd6g5v62.amplifyapp.com",
                 "http://localhost:5173",
                 "https://cvanalyzer.auth.eu-west-1.amazoncognito.com/oauth2/idpresponse"
              ],
