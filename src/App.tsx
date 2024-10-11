@@ -2,12 +2,16 @@ import { useEffect, useState } from "react"
 import { useAuthenticator } from "@aws-amplify/ui-react"
 import type { Schema } from "../amplify/data/resource"
 import { generateClient } from "aws-amplify/data"
+import Dashboard from "@/components/pages/dashboard"
 
 const client = generateClient<Schema>()
 
+console.log("client----->", client)
+
 function App() {
   const [todos, setTodos] = useState<Array<Schema["Todo"]["type"]>>([])
-  const { signOut, user } = useAuthenticator()
+  console.log("todos----->", todos)
+  //   const { signOut, user } = useAuthenticator()
 
   //   async function getTodo() {
   //     try {
@@ -39,9 +43,9 @@ function App() {
 
   return (
     <main>
-      <h1>{user?.signInDetails?.loginId}'s todos</h1>
+      {/* <h1>{user?.signInDetails?.loginId}'s todos</h1>
       <h1>My todos</h1>
-      <button onClick={createTodo}>+ new</button>
+      <Button onClick={createTodo}>+ new</Button>
       <ul>
         {todos.map((todo) => (
           <li key={todo.id} onClick={() => deleteTodo(todo.id)}>
@@ -52,11 +56,9 @@ function App() {
       <div>
         🥳 App successfully hosted. Try creating a new todo.
         <br />
-        <a href="https://docs.amplify.aws/react/start/quickstart/#make-frontend-updates">
-          Review next step of this tutorial.
-        </a>
       </div>
-      <button onClick={signOut}>Sign out</button>
+      <Button onClick={signOut}>Sign out</Button> */}
+      <Dashboard />
     </main>
   )
 }
