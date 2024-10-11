@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react"
-import { useAuthenticator } from "@aws-amplify/ui-react"
+// import { useAuthenticator } from "@aws-amplify/ui-react"
 import type { Schema } from "../amplify/data/resource"
 import { generateClient } from "aws-amplify/data"
 import Dashboard from "@/components/pages/dashboard"
@@ -33,13 +33,13 @@ function App() {
     })
   }, [])
 
-  const createTodo = () => {
-    client.models.Todo.create({ content: window.prompt("Todo content") })
-  }
+  //   const createTodo = () => {
+  //     client.models.Todo.create({ content: window.prompt("Todo content") })
+  //   }
 
-  const deleteTodo = (id: string) => {
-    client.models.Todo.delete({ id })
-  }
+  //   const deleteTodo = (id: string) => {
+  //     client.models.Todo.delete({ id })
+  //   }
 
   return (
     <main>
