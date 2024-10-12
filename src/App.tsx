@@ -10,7 +10,6 @@ const client = generateClient<Schema>()
 function App() {
   const [todos, setTodos] = useState<Array<Schema["Todo"]["type"]>>([])
   const { signOut, user } = useAuthenticator()
-
   //   async function getTodo() {
   //     try {
   //       const restOperation = get({
@@ -33,17 +32,17 @@ function App() {
     })
   }, [])
 
-  //   const createTodo = () => {
-  //     client.models.Todo.create({ content: window.prompt("Todo content"), isDone: true })
-  //   }
+  const createTodo = () => {
+    client.models.Todo.create({ content: window.prompt("Todo content"), isDone: true })
+  }
 
-  //   const deleteTodo = (id: string) => {
-  //     client.models.Todo.delete({ id })
-  //   }
+  const deleteTodo = (id: string) => {
+    client.models.Todo.delete({ id })
+  }
 
   return (
     <main>
-      {/* <h1>{user?.signInDetails?.loginId}'s todos</h1>
+      <h1>{user?.signInDetails?.loginId}'s todos</h1>
       <h1>My todos</h1>
       <Button onClick={createTodo}>+ new</Button>
       <ul>
@@ -56,7 +55,7 @@ function App() {
       <div>
         🥳 App successfully hosted. Try creating a new todo.
         <br />
-      </div> */}
+      </div>
       <Button onClick={signOut}>Sign out</Button>
       <Dashboard />
     </main>

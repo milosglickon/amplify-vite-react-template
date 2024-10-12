@@ -1,17 +1,6 @@
 import React from "react"
 import { Link } from "react-router-dom"
-import {
-  Home,
-  LineChart,
-  Package,
-  Package2,
-  PanelLeft,
-  ShoppingCart,
-  Users2,
-  Trophy,
-  FolderUp,
-  Calendar,
-} from "lucide-react"
+import { Home, LineChart, Package2, PanelLeft, Trophy, FolderUp, Calendar } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import {
   DropdownMenu,
