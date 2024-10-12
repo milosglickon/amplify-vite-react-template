@@ -1,17 +1,15 @@
 import { useEffect, useState } from "react"
-// import { useAuthenticator } from "@aws-amplify/ui-react"
+import { useAuthenticator } from "@aws-amplify/ui-react"
 import type { Schema } from "../amplify/data/resource"
 import { generateClient } from "aws-amplify/data"
+import { Button } from "@/components/ui/button"
 import Dashboard from "@/components/pages/dashboard"
 
 const client = generateClient<Schema>()
 
-console.log("client----->", client)
-
 function App() {
   const [todos, setTodos] = useState<Array<Schema["Todo"]["type"]>>([])
-  console.log("todos----->", todos)
-  //   const { signOut, user } = useAuthenticator()
+  const { signOut, user } = useAuthenticator()
 
   //   async function getTodo() {
   //     try {
@@ -29,12 +27,14 @@ function App() {
 
   useEffect(() => {
     client.models.Todo.observeQuery().subscribe({
-      next: (data) => setTodos([...data.items]),
+      next: (data) => {
+        setTodos([...data.items])
+      },
     })
   }, [])
 
   //   const createTodo = () => {
-  //     client.models.Todo.create({ content: window.prompt("Todo content") })
+  //     client.models.Todo.create({ content: window.prompt("Todo content"), isDone: true })
   //   }
 
   //   const deleteTodo = (id: string) => {
@@ -56,8 +56,8 @@ function App() {
       <div>
         🥳 App successfully hosted. Try creating a new todo.
         <br />
-      </div>
-      <Button onClick={signOut}>Sign out</Button> */}
+      </div> */}
+      <Button onClick={signOut}>Sign out</Button>
       <Dashboard />
     </main>
   )

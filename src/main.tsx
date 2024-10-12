@@ -6,6 +6,7 @@ import { Authenticator } from "@aws-amplify/ui-react"
 import App from "./App.tsx"
 import Diary from "./components/pages/diary"
 import Flashcards from "@/components/pages/fleshcards"
+import Calendar from "@/components/pages/calendar"
 import "./index.css"
 import { Amplify } from "aws-amplify"
 import outputs from "../amplify_outputs.json"
@@ -27,6 +28,10 @@ const router = createBrowserRouter([
   {
     path: "/flashcards",
     element: <Flashcards />,
+  },
+  {
+    path: "/calendar",
+    element: <Calendar />,
   },
 ])
 

@@ -1,6 +1,17 @@
 import React from "react"
 import { Link } from "react-router-dom"
-import { Home, LineChart, Package, Package2, PanelLeft, ShoppingCart, Users2 } from "lucide-react"
+import {
+  Home,
+  LineChart,
+  Package,
+  Package2,
+  PanelLeft,
+  ShoppingCart,
+  Users2,
+  Trophy,
+  FolderUp,
+  Calendar,
+} from "lucide-react"
 import { Button } from "@/components/ui/button"
 import {
   DropdownMenu,
@@ -49,7 +60,7 @@ export default ({ children }: { children: React.ReactNode }) => {
                   to="/diary"
                   className="flex h-9 w-9 items-center justify-center rounded-lg bg-accent text-accent-foreground transition-colors hover:text-foreground md:h-8 md:w-8"
                 >
-                  <ShoppingCart className="h-5 w-5" />
+                  <FolderUp className="h-5 w-5" />
                   <span className="sr-only">Diary</span>
                 </Link>
               </TooltipTrigger>
@@ -63,7 +74,7 @@ export default ({ children }: { children: React.ReactNode }) => {
                   to="/flashcards"
                   className="flex h-9 w-9 items-center justify-center rounded-lg text-muted-foreground transition-colors hover:text-foreground md:h-8 md:w-8"
                 >
-                  <Package className="h-5 w-5" />
+                  <Trophy className="h-5 w-5" />
                   <span className="sr-only">Flashcards</span>
                 </Link>
               </TooltipTrigger>
@@ -74,14 +85,14 @@ export default ({ children }: { children: React.ReactNode }) => {
             <Tooltip>
               <TooltipTrigger asChild>
                 <Link
-                  to="#"
+                  to="/calendar"
                   className="flex h-9 w-9 items-center justify-center rounded-lg text-muted-foreground transition-colors hover:text-foreground md:h-8 md:w-8"
                 >
-                  <Users2 className="h-5 w-5" />
-                  <span className="sr-only">Customers</span>
+                  <Calendar className="h-5 w-5" />
+                  <span className="sr-only">Calendar</span>
                 </Link>
               </TooltipTrigger>
-              <TooltipContent side="right">Customers</TooltipContent>
+              <TooltipContent side="right">Calendar</TooltipContent>
             </Tooltip>
           </TooltipProvider>
           <TooltipProvider>
@@ -139,19 +150,22 @@ export default ({ children }: { children: React.ReactNode }) => {
                   Home
                 </Link>
                 <Link to="/diary" className="flex items-center gap-4 px-2.5 text-foreground">
-                  <ShoppingCart className="h-5 w-5" />
+                  <FolderUp className="h-5 w-5" />
                   Diary
                 </Link>
                 <Link
                   to="/flashcards"
                   className="flex items-center gap-4 px-2.5 text-muted-foreground hover:text-foreground"
                 >
-                  <Package className="h-5 w-5" />
+                  <Trophy className="h-5 w-5" />
                   Flashcards
                 </Link>
-                <Link to="#" className="flex items-center gap-4 px-2.5 text-muted-foreground hover:text-foreground">
-                  <Users2 className="h-5 w-5" />
-                  Customers
+                <Link
+                  to="/calendar"
+                  className="flex items-center gap-4 px-2.5 text-muted-foreground hover:text-foreground"
+                >
+                  <Calendar className="h-5 w-5" />
+                  Calendar
                 </Link>
                 <Link to="#" className="flex items-center gap-4 px-2.5 text-muted-foreground hover:text-foreground">
                   <LineChart className="h-5 w-5" />
