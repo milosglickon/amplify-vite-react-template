@@ -12,9 +12,20 @@ import { Amplify } from "aws-amplify"
 import outputs from "../amplify_outputs.json"
 import "@aws-amplify/ui-react/styles.css"
 import { translations } from "@aws-amplify/ui-react"
+
+Amplify.configure(outputs)
+const existingConfig = Amplify.getConfig()
+Amplify.configure({
+  ...existingConfig,
+  API: {
+    ...existingConfig.API,
+    //@ts-ignore
+    REST: outputs.custom.API,
+  },
+})
+
 I18n.putVocabularies(translations)
 I18n.setLanguage("it")
-Amplify.configure(outputs)
 
 const router = createBrowserRouter([
   {
