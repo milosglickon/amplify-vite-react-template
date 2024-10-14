@@ -2,7 +2,7 @@ import { useEffect, useState } from "react"
 import { useAuthenticator } from "@aws-amplify/ui-react"
 import { get } from "aws-amplify/api"
 import { Button } from "@/components/ui/button"
-import Dashboard from "@/components/pages/dashboard"
+// import Dashboard from "@/components/pages/dashboard"
 // import { useQuery } from "@tanstack/react-query"
 import type { Schema } from "../amplify/data/resource"
 import { useClient } from "@/hooks/useClient"
@@ -62,18 +62,18 @@ function App() {
     })
   }, [])
 
-  //   const createTodo = () => {
-  //     client.models.Todo.create({ content: window.prompt("Todo content"), isDone: true })
-  //   }
+  const createTodo = () => {
+    client.models.Todo.create({ content: window.prompt("Todo content"), isDone: true })
+  }
 
-  //   const deleteTodo = (id: string) => {
-  //     client.models.Todo.delete({ id })
-  //   }
+  const deleteTodo = (id: string) => {
+    client.models.Todo.delete({ id })
+  }
 
   return (
     <main>
       {/* <h1>{data?.name}</h1> */}
-      {/* <h1>{user?.signInDetails?.loginId}'s todos</h1>
+      <h1>{user?.signInDetails?.loginId}'s todos</h1>
       <h1>My todos</h1>
       <Button onClick={createTodo}>+ new</Button>
       <ul>
@@ -86,9 +86,9 @@ function App() {
       <div>
         🥳 App successfully hosted. Try creating a new todo.
         <br />
-      </div> */}
+      </div>
       <Button onClick={signOut}>Sign out</Button>
-      <Dashboard />
+      {/* <Dashboard /> */}
     </main>
   )
 }
