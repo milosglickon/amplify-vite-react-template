@@ -14,11 +14,6 @@ import "@aws-amplify/ui-react/styles.css"
 import { translations } from "@aws-amplify/ui-react"
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query"
 
-import type { Schema } from "../amplify/data/resource"
-import { generateClient } from "aws-amplify/data"
-
-const client = generateClient<Schema>()
-
 const queryClient = new QueryClient()
 
 Amplify.configure(outputs)
