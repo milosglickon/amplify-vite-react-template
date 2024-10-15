@@ -1,13 +1,28 @@
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import FullCalendar from "@fullcalendar/react"
 import dayGridPlugin from "@fullcalendar/daygrid" // a plugin!
 import interactionPlugin from "@fullcalendar/interaction" // needed for dayClick
 import itLocale from "@fullcalendar/core/locales/it"
 import Dialog from "@/components/common/dialog"
+import type { Schema } from "../../../../../amplify/data/resource"
+import { useClient } from "@/hooks/useClient"
 
 export default () => {
+  const client = useClient()
   const [showDialog, setShowDialog] = useState(false)
   const [dialogItems, setDialogItems] = useState([])
+  const [tasks, setTasks] = useState<Array<Schema["Task"]["type"]>>([])
+
+  useEffect(() => {
+    const getTasks = async () => {
+      const tasks = await client.models.Task.list()
+      //@ts-ignore
+      setTasks(tasks)
+    }
+    getTasks()
+  }, [])
+
+  console.log("tasks---->", tasks)
   const events = [
     { label: "event 1", date: "2024-10-11" },
     { label: "event 2", date: "2024-10-11" },

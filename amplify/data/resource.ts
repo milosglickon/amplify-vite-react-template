@@ -29,12 +29,15 @@ const schema = a.schema({
       argument: a.string().required(),
       importance: a.ref('TaskImportance').required(),
       status: a.ref('TaskStatus').required(),
-      note: a.string()
+      note: a.string(),
+    //   analysis: a.belongsTo("Analysis", "analysisId")
     }).authorization((allow) => [allow.owner()]),
 
     Analysis: a.model({
         input: a.string().required(),
         result: a.string().required(),
+        // tasks: a.hasMany("Task", "analysisId")
+
     }).authorization((allow) => [allow.owner()]),
 });
 

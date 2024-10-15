@@ -63,7 +63,15 @@ function App() {
   }, [])
 
   const createTodo = () => {
-    // client.models.Task.create({ note: window.prompt("Todo content") })
+    client.models.Task.create({
+      type: "TEST",
+      subject: "english",
+      date: "2024-10-17",
+      argument: "some string",
+      importance: "HIGH",
+      status: "ACTIVE",
+      note: window.prompt("Todo content"),
+    })
   }
 
   const deleteTodo = (id: string) => {
