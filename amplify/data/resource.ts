@@ -30,12 +30,12 @@ const schema = a.schema({
       importance: a.ref('TaskImportance').required(),
       status: a.ref('TaskStatus').required(),
       note: a.string()
-    })
-    .authorization((allow) => [allow.owner()]),
+    }).authorization((allow) => [allow.owner()]),
+
     Analysis: a.model({
         input: a.string().required(),
         result: a.string().required(),
-    })
+    }).authorization((allow) => [allow.owner()]),
 });
 
 export type Schema = ClientSchema<typeof schema>;
