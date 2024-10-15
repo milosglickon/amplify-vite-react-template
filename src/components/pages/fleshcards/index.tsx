@@ -24,8 +24,30 @@ export default () => {
     },
   ]
   return (
-    <Layout>
-      <div>
+    <Layout showNavBar>
+      <div className="pt-[40rem]">
+        <FlashcardArray
+          frontCardStyle={{ backgroundColor: "#2563eb", color: "#fff" }}
+          backCardStyle={{ color: "#2563eb" }}
+          frontContentStyle={{
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+          }}
+          backContentStyle={{ display: "flex", alignItems: "center", justifyContent: "center" }}
+          cards={cards}
+        />
+        <FlashcardArray
+          frontCardStyle={{ backgroundColor: "#2563eb", color: "#fff" }}
+          backCardStyle={{ color: "#2563eb" }}
+          frontContentStyle={{
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+          }}
+          backContentStyle={{ display: "flex", alignItems: "center", justifyContent: "center" }}
+          cards={cards}
+        />
         <FlashcardArray
           frontCardStyle={{ backgroundColor: "#2563eb", color: "#fff" }}
           backCardStyle={{ color: "#2563eb" }}

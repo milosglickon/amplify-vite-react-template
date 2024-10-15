@@ -11,7 +11,7 @@ import { useClient } from "@/hooks/useClient"
 // const client = generateClient<Schema>()
 
 function App() {
-  const [todos, setTodos] = useState<Array<Schema["Todo"]["type"]>>([])
+  const [tasks, setTasks] = useState<Array<Schema["Task"]["type"]>>([])
   const { signOut, user } = useAuthenticator()
   const client = useClient()
   //   const query = useQuery({
@@ -55,19 +55,19 @@ function App() {
 
   useEffect(() => {
     getItem()
-    client.models.Todo.observeQuery().subscribe({
+    client.models.Task.observeQuery().subscribe({
       next: (data) => {
-        setTodos([...data.items])
+        setTasks([...data.items])
       },
     })
   }, [])
 
   const createTodo = () => {
-    client.models.Todo.create({ content: window.prompt("Todo content"), isDone: true })
+    // client.models.Task.create({ note: window.prompt("Todo content") })
   }
 
   const deleteTodo = (id: string) => {
-    client.models.Todo.delete({ id })
+    client.models.Task.delete({ id })
   }
 
   return (
@@ -77,9 +77,9 @@ function App() {
       <h1>My todos</h1>
       <Button onClick={createTodo}>+ new</Button>
       <ul>
-        {todos.map((todo) => (
-          <li key={todo.id} onClick={() => deleteTodo(todo.id)}>
-            {todo.content}
+        {tasks.map((task) => (
+          <li key={task.id} onClick={() => deleteTodo(task.id)}>
+            {task.argument}
           </li>
         ))}
       </ul>

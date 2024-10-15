@@ -22,10 +22,11 @@ export default () => {
   }
 
   return (
-    <>
+    <div className="[&>div]:h-60">
       <FullCalendar
         plugins={[dayGridPlugin, interactionPlugin]}
-        initialView="dayGridMonth"
+        themeSystem="bootstrap5"
+        initialView="dayGridWeek"
         dateClick={handleDateClick}
         // displayEventTime={true}
         eventDisplay="background"
@@ -34,6 +35,6 @@ export default () => {
       />
       {/* <Alert > */}
       <Dialog open={showDialog} close={() => setShowDialog(false)} items={dialogItems} />
-    </>
+    </div>
   )
 }
