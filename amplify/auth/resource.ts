@@ -9,24 +9,24 @@ export const auth = defineAuth({
     // email: true,
     //
     phone: true,
-    externalProviders: {
-        google: {
-            clientId: secret('GOOGLE_CLIENT_ID'),
-            clientSecret:secret('GOOGLE_CLIENT_SECRET'),
-            scopes: ["openid", "email", "profile"],
-            attributeMapping:{
-                email: "email",
-            },
-        },
-        callbackUrls:[
-            "http://localhost:5173",
-               "https://main.d3axup2zc5zmll.amplifyapp.com/",
-            ],
-            logoutUrls:[
-                "http://localhost:5173",
-                "https://main.d3axup2zc5zmll.amplifyapp.com/",
-             ],
-    }
+    // externalProviders: {
+    //     google: {
+    //         clientId: secret('GOOGLE_CLIENT_ID'),
+    //         clientSecret:secret('GOOGLE_CLIENT_SECRET'),
+    //         scopes: ["openid", "email", "profile"],
+    //         attributeMapping:{
+    //             email: "email",
+    //         },
+    //     },
+    //     callbackUrls:[
+    //         "http://localhost:5173",
+    //            "https://main.d3axup2zc5zmll.amplifyapp.com/",
+    //         ],
+    //         logoutUrls:[
+    //             "http://localhost:5173",
+    //             "https://main.d3axup2zc5zmll.amplifyapp.com/",
+    //          ],
+    // }
   },
   multifactor: {
     mode: 'OPTIONAL',
